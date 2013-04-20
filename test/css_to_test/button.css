@@ -1,0 +1,28 @@
+/**
+ * Amazing button
+ * =====================
+ */
+.button {
+    border: solid 1px gray;
+}
+
+.button:hover {
+    border: solid 1px lightgray;
+}
+
+/**
+ * When it is pressed
+ * ---------------------
+ */
+.button.is-active {
+    border: solid 1px darkgray;
+}
+
+
+/**
+ * Not that amazing button
+ * +++++++++++++++++++++
+ */
+.button--notamazing {
+    border-color: transparent;
+}

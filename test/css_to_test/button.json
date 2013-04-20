@@ -1,0 +1,32 @@
+{
+    "button": {
+        "variables": [],
+        "functions": [],
+        "mixins": [],
+        "rules": [{
+            "file": "",
+            "line": "",
+            "type": "component",
+            "description": "Amazing button",
+            "selector": ".button"
+        }, {
+            "file": "",
+            "line": "",
+            "type": "state",
+            "description": "",
+            "selector": ".button:hover"
+        }, {
+            "file": "",
+            "line": "",
+            "type": "state",
+            "description": "When it is pressed",
+            "selector": ".button.is-active"
+        }, {
+            "file": "",
+            "line": "",
+            "type": "modifier",
+            "description": "Not that amazing button",
+            "selector": ".button--notamazing"
+        }]
+    }
+}

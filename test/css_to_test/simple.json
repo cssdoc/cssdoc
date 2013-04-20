@@ -1,5 +1,14 @@
 {
-    "type": "rule",
-    "description": "Simple test",
-    "selector": ".simple-rule"
+    "simple": {
+        "variables": [],
+        "functions": [],
+        "mixins": [],
+        "rules": [{
+            "file": "",
+            "line": "",
+            "type": "rule ???",
+            "description": "Simple test",
+            "selector": ".simple-rule"
+        }]
+    }
 }
