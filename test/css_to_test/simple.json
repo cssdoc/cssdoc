@@ -1,0 +1,5 @@
+{
+    "type": "rule",
+    "description": "Simple test",
+    "selector": ".simple-rule"
+}
