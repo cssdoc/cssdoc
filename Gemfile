@@ -1,3 +1,6 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'sass'
+gemspec
+
+gem 'rake'
+gem 'sass', "3.2.7"
