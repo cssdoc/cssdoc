@@ -1,4 +1,5 @@
 require 'cssdoc/module'
+require 'cssdoc/rule'
 require 'sass'
 
 module CssDoc
