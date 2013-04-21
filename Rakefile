@@ -1,7 +1,8 @@
 require 'rake/testtask'
 
 Rake::TestTask.new do |t|
-  t.libs << 'test'
+    $LOAD_PATH << File.join(Dir.pwd, 'lib')
+    t.libs << 'test'
 end
 
 desc "Run tests"

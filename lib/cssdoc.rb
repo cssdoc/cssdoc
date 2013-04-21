@@ -1,7 +1,9 @@
+require 'cssdoc/module'
 require 'sass'
 
 module CssDoc
 
+    # Enum for types
     module Types
         RULE = "rule"
         VARIABLE = "variable"
@@ -9,16 +11,16 @@ module CssDoc
         FUNCTION = "function"
     end
 
-    def self.parse_string(str)
-        engine = Sass::Engine.new str, :syntax => :scss
-        tree = engine.to_tree
+    # def self.parse_string(str)
+    #     engine = Sass::Engine.new str, :syntax => :scss
+    #     tree = engine.to_tree
 
-        result = Hash.new
-        result["type"] = CssDoc::Types::RULE
-        result["description"] = tree.children[0].value
-        result["selector"] = tree.children[1].rule
+    #     result = Hash.new
+    #     result["type"] = CssDoc::Types::RULE
+    #     result["description"] = tree.children[0].value
+    #     result["selector"] = tree.children[1].rule
 
-        return result
-    end
+    #     return result
+    # end
 
 end
