@@ -1,0 +1,12 @@
+{
+    "simplevariable": {
+        "variables": [{
+            "name": "variable",
+            "description": "This is a simple variable",
+            "type": "string"
+        }],
+        "functions": [],
+        "mixins": [],
+        "rules": []
+    }
+}
