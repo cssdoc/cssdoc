@@ -12,18 +12,31 @@ class CssDocTest < Test::Unit::TestCase
         result = CssDoc::parse_string ""
         expected = TestHelper.get_empty_module()
 
-        assert_equal expected, result
+        assert_equal result, expected
     end
 
     def test_simple_variable
         str = "$var: 'simple';"
         result = CssDoc::parse_string str, :scss
 
-        var = TestHelper.get_default_variable({:name => 'var', :type => :string})
+        var = TestHelper.get_default_variable({:name => 'var'})
         expected = Hash.new
         expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
 
-        assert_equal expected, result
+        assert_equal result, expected
+    end
+
+    def test_simple_variable_with_desc
+        str = "// simple \n" \
+              "$var: 'simple';"
+
+        result = CssDoc::parse_string str, :scss 
+
+        var = TestHelper.get_default_variable({:name => 'var', :description => 'simple'})
+        expected = Hash.new
+        expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
+
+        assert_equal result, expected
     end
 
 =begin

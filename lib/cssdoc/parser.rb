@@ -26,6 +26,7 @@ module CssDoc
             return get_modules_as_hash
         end
 
+        # @return [Hash]
         def get_modules_as_hash
             result = {}
 
@@ -46,6 +47,20 @@ module CssDoc
             return module_name.gsub('_', '')
         end
 
+        # @param comment_node [Sass::Tree:CommentNode]
+        # @return [Hash]
+        def format_comment_node(comment_node)
+            result = { :description => [] }
+
+            comment_node.value.each do |line|
+                result[:description].push line.gsub(/^\/\*/, '').gsub(/\*\/$/, '').strip
+            end
+
+            result[:description] = result[:description].join
+
+            return result
+        end
+
         # returns a module within the givin name
         # @param module_name [string]
         # @return [CssDoc::Module]
@@ -62,6 +77,36 @@ module CssDoc
             return @modules.last
         end
 
+        # @param node [Sass::Tree:Node]
+        # @param parent_node [Sass::Tree:Node]
+        # @return [hash]
+        def get_comment_from_node(node, parent_node)
+            comment = {}
+            return comment if parent_node == nil
+
+            index = 0
+            parent_node.children.each do |child|
+
+                if node == child
+                    if index == 0
+                        # first node doesn't have comments
+                        return comment
+                    end
+
+                    previous_node = parent_node.children[index - 1]
+
+                    if previous_node.class == Sass::Tree::CommentNode
+                        # We are lucky, there is a comment for this node
+                        return format_comment_node(previous_node)
+                    end
+                end
+                index += 1
+
+            end
+
+            return comment
+        end
+
         # Adds a variable to a module by its name
         # @param module_name [string]
         # @param var [CssDoc::Variable]
@@ -70,25 +115,34 @@ module CssDoc
             mod.add_variable var
         end
 
-        def parse_node(node)
-            @current_node = node
 
+        # Parses a node
+        # @param node [Sass::Tree::Node]
+        # @param [parent_node=nil] [Sass::Tree::Node]
+        def parse_node(node, parent_node=nil)
             node.children.each do |child|
-                parse_node child
+                parse_node child, node
             end
 
             if node.class == Sass::Tree::VariableNode
-                parse_variable node
+                parse_variable node, parent_node
             end
         end
 
-        def parse_variable(node)
+        # @param node [Sass::Tree::Node]
+        # @param [parent_node] [Sass::Tree::Node]
+        def parse_variable(node, parent_node=nil)
             var = CssDoc::Variable.new
             var.name = node.name
 
+            comment = get_comment_from_node(node, parent_node)
+            
+            if not comment.empty?
+                var.description = comment[:description]
+            end
+
             add_variable_to_module node.filename, var
         end
-
 
     end
 
