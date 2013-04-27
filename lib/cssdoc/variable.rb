@@ -15,6 +15,14 @@ module CssDoc
             @type = CssDoc::Variable::Types::STRING
         end
 
+        def to_hash
+            return {
+                :name => @name,
+                :description => @description,
+                :type => @type
+            }
+        end
+
     end
 
 end

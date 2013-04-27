@@ -1,11 +1,29 @@
 require 'test/unit'
-require 'rubygems'
+require 'helper'
 require 'cssdoc'
 
 class CssDocTest < Test::Unit::TestCase
 
     def test_init
         assert_equal 1, 1
+    end
+
+    def test_parse_string_given_empty_string
+        result = CssDoc::parse_string ""
+        expected = TestHelper.get_empty_module()
+
+        assert_equal expected, result
+    end
+
+    def test_simple_variable
+        str = "$var: 'simple';"
+        result = CssDoc::parse_string str, :scss
+
+        var = TestHelper.get_default_variable({:name => 'var', :type => :string})
+        expected = Hash.new
+        expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
+
+        assert_equal expected, result
     end
 
 =begin
