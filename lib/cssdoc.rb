@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'cssdoc/parser'
 require 'cssdoc/module'
 require 'cssdoc/rule'
