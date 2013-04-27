@@ -1,6 +1,5 @@
 require 'test/unit'
-require 'rubygems'
-require 'cssdoc'
+require 'cssdoc/rule'
 
 class RuleTest < Test::Unit::TestCase
 

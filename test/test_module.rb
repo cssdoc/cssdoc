@@ -4,7 +4,7 @@ require 'cssdoc/module'
 class ModuleTest < Test::Unit::TestCase
 
     def test_init_a_module
-        m = CssDoc::Module.new "test"
+        m = CssDoc::Module.new "test"        
 
         assert_equal m.name, "test"
 
