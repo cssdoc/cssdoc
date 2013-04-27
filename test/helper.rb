@@ -24,4 +24,8 @@ class TestHelper
         }
     end
 
+    def self.chdir(*path)
+        Dir.chdir File.join(File.dirname(__FILE__), path)
+    end
+
 end

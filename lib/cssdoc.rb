@@ -24,4 +24,15 @@ module CssDoc
         return parser.parse
     end
 
+    # Reades the given file and parses its content
+    # @param path [String] Path to the file
+    # @param [syntax=:scss] [Symbol]
+    # @return [Hash]
+    def self.parse_file(path, syntax=:scss)
+        engine = Sass::Engine.for_file path, :syntax => syntax, :cache => false
+        parser = CssDoc::Parser.new engine.to_tree
+
+        return parser.parse
+    end
+
 end

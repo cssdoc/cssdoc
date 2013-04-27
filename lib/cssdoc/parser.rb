@@ -44,7 +44,12 @@ module CssDoc
                 return CssDoc::Module::DEFAULT_NAME
             end
 
-            return module_name.gsub('_', '')
+            current_dir = Dir.pwd
+            if module_name.start_with? current_dir
+                module_name = module_name[ current_dir.length+1, module_name.length ]
+            end
+
+            return module_name.gsub('_', '').gsub(/\.\w+$/, '')
         end
 
         # @param comment_node [Sass::Tree:CommentNode]

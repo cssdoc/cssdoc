@@ -22,9 +22,12 @@ class ParserTest < Test::Unit::TestCase
     end
 
     def test_format_module_name
+        current_dir = Dir.pwd
+
         assert_equal CssDoc::Module::DEFAULT_NAME, @parser.format_module_name(nil)
         assert_equal "modulename", @parser.format_module_name("module_name")
         assert_equal "newmodulename", @parser.format_module_name("_new_module_name")
+        assert_equal "modulewithext", @parser.format_module_name("#{current_dir}/module_with_ext.scss")
     end
 
     def test_get_module_by_name

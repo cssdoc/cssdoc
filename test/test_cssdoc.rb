@@ -1,8 +1,20 @@
 require 'test/unit'
 require 'helper'
 require 'cssdoc'
+require 'json'
 
 class CssDocTest < Test::Unit::TestCase
+
+    INITIAL_LOCATION = Dir.pwd
+
+    def setup
+        #puts 'setup'
+    end
+
+    def teardown
+        Dir.chdir INITIAL_LOCATION
+    end
+
 
     def test_init
         assert_equal 1, 1
@@ -37,6 +49,15 @@ class CssDocTest < Test::Unit::TestCase
         expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
 
         assert_equal result, expected
+    end
+
+    def test_parse_reading_from_a_simple_file
+        TestHelper.chdir 'scss'
+
+        json = JSON.parse File.read('simple_variable.json')
+        result = CssDoc::parse_file 'simple_variable.scss', :scss
+
+        assert_equal json.to_json, result.to_json
     end
 
 =begin
