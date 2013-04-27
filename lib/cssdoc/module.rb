@@ -1,5 +1,3 @@
-require 'json'
-
 module CssDoc
 
     class Module
@@ -29,11 +27,6 @@ module CssDoc
                     :rules => @rules,
                 }
             }
-        end
-
-
-        def to_json
-            self.to_hash.to_json
         end
 
     end

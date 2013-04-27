@@ -45,11 +45,6 @@ module CssDoc
             }
         end
 
-        # @return [string]
-        def to_json
-            return self.to_hash.to_json
-        end
-
     end
 
 end

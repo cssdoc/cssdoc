@@ -6,7 +6,6 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    json (1.7.7)
     rake (10.0.4)
     sass (3.2.7)
 
@@ -15,6 +14,5 @@ PLATFORMS
 
 DEPENDENCIES
   cssdoc!
-  json
   rake
   sass (= 3.2.7)

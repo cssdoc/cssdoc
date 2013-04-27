@@ -30,18 +30,4 @@ class ModuleTest < Test::Unit::TestCase
         assert_equal expected, m.to_hash
     end
 
-    def test_to_json
-        m = CssDoc::Module.new "jsontest"
-
-        expected = Hash.new
-        expected['jsontest'] = {
-            :variables => [],
-            :functions => [],
-            :mixins => [],
-            :rules => []
-        }
-
-        assert_equal expected.to_json, m.to_json
-    end
-
 end

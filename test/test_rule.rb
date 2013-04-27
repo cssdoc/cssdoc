@@ -29,18 +29,4 @@ class RuleTest < Test::Unit::TestCase
         assert_equal expected, r.to_hash
     end
 
-    def test_to_json
-        r = CssDoc::Rule.new '.test-to-json'
-
-        expected = {
-            :file => '',
-            :line => '',
-            :type => CssDoc::RuleTypes::SELECTOR,
-            :description => '',
-            :selector => ".test-to-json"
-        }
-
-        assert_equal expected.to_json, r.to_json
-    end
-
 end

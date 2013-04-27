@@ -1,7 +1,6 @@
 require 'test/unit'
 require 'rubygems'
 require 'cssdoc'
-require 'json'
 
 class CssDocTest < Test::Unit::TestCase
 
