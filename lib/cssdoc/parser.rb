@@ -58,7 +58,7 @@ module CssDoc
 
             comment = comment_node.to_scss
 
-            comment.each do |line|
+            comment.each_line do |line|
                 line = line.gsub(/^\/\//, '').strip
                 result[:description].push line.gsub(/^\/\*+/, '').gsub(/\*\/$/, '').sub(/(^\* )|(^\*)/, '')
             end
