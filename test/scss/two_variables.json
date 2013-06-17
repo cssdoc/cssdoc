@@ -1,0 +1,16 @@
+{
+    "twovariables": {
+        "variables": [{
+            "name": "variable-one",
+            "description": "This is the first variable",
+            "type": "string"
+        },{
+           "name": "variable-two",
+            "description": "This is the second variable",
+            "type": "string" 
+        }],
+        "functions": [],
+        "mixins": [],
+        "rules": []
+    }
+}
