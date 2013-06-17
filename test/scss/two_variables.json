@@ -8,7 +8,7 @@
         },{
            "name": "variable-two",
             "description": "This is the second variable",
-            "type": "string",
+            "type": "color",
             "value": "blue" 
         }],
         "functions": [],

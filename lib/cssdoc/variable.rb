@@ -7,6 +7,7 @@ module CssDoc
             STRING = :string
             NUMBER = :number
             BOOLEAN = :boolean
+            COLOR = :color
         end
 
         def initialize
@@ -17,7 +18,26 @@ module CssDoc
         end
 
         def value=(value)
-            @value = value.to_s.gsub(/(^")|("$)/, '')
+            if value.class == Sass::Script::Number
+                @value = value.value
+                @type = CssDoc::Variable::Types::NUMBER
+
+            elsif value.class == Sass::Script::Bool
+                @value = value.value
+                @type = CssDoc::Variable::Types::BOOLEAN
+
+            elsif value.class == Sass::Script::Color
+                @value = value
+                @type = CssDoc::Variable::Types::COLOR
+
+            elsif value == nil
+                @value = nil
+                @type = CssDoc::Variable::Types::STRING
+
+            else
+                @value = value.value
+                @type = CssDoc::Variable::Types::STRING
+            end
         end
 
         def to_hash

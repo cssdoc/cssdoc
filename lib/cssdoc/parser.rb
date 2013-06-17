@@ -60,7 +60,7 @@ module CssDoc
 
             comment.each_line do |line|
                 line = line.gsub(/^\/\//, '').strip
-                result[:description].push line.gsub(/^\/\*+/, '').gsub(/\*\/$/, '').sub(/(^\* )|(^\*)/, '')
+                result[:description].push line.gsub(/^\/\*+/, '').gsub(/\*\/$/, '').sub(/(^\* )|(^\*)/, '').strip
             end
 
             result[:description] = result[:description].join
