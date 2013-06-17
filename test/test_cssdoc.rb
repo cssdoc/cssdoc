@@ -22,7 +22,8 @@ class CssDocTest < Test::Unit::TestCase
 
     def test_parse_string_given_empty_string
         result = CssDoc::parse_string ""
-        expected = TestHelper.get_empty_module()
+        expected = TestHelper.get_empty_module().to_json
+        expected = JSON.parse expected
 
         assert_equal result, expected
     end
@@ -34,6 +35,8 @@ class CssDocTest < Test::Unit::TestCase
         var = TestHelper.get_default_variable({:name => 'var'})
         expected = Hash.new
         expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
+
+        expected = JSON.parse expected.to_json
 
         assert_equal result, expected
     end
@@ -48,6 +51,8 @@ class CssDocTest < Test::Unit::TestCase
         expected = Hash.new
         expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
 
+        expected = JSON.parse expected.to_json
+
         assert_equal result, expected
     end
 
@@ -57,7 +62,7 @@ class CssDocTest < Test::Unit::TestCase
         json = JSON.parse File.read('simple_variable.json')
         result = CssDoc::parse_file 'simple_variable.scss', :scss
 
-        assert_equal json.to_json, result.to_json
+        assert_equal json, result
     end
 
 =begin

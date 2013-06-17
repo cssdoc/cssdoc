@@ -22,7 +22,6 @@ module CssDoc
                 parse_node @root
             end
 
-
             return get_modules_as_hash
         end
 
