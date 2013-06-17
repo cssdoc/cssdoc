@@ -65,31 +65,19 @@ class CssDocTest < Test::Unit::TestCase
         assert_equal json, result
     end
 
-=begin
-    def test_css_files
-        path = File.join(File.dirname(__FILE__), 'css_to_test')
 
-        Dir.foreach(path) do |filename|
+    def test_scss_files
+        TestHelper.chdir 'scss'
 
-            if filename.end_with? ".css"
-                filename = filename.sub('.css', '')
+        Dir.foreach('.') do |filename|
+            if filename.end_with? ".scss"
+                json_file = filename.sub('.scss', '.json')
 
-                css = File.read(File.join(path, filename + '.css'))
-                json = File.read(File.join(path, filename + '.json'))
+                scss = CssDoc::parse_file filename
+                json = JSON.parse File.read json_file
 
-                puts CssDoc
-
-                assert_equal CssDoc.parse_string(css), JSON.parse(json)
+                assert_equal scss, json
             end
-
         end
-
-        # Dir.foreach("./css_to_test/*.css") do |file|
-        #     puts file
-        # end
-
-        # assert_equal(1,1)
     end
-=end
-
 end

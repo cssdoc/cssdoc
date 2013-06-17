@@ -56,8 +56,11 @@ module CssDoc
         def format_comment_node(comment_node)
             result = { :description => [] }
 
-            comment_node.value.each do |line|
-                result[:description].push line.gsub(/^\/\*/, '').gsub(/\*\/$/, '').strip
+            comment = comment_node.to_scss
+
+            comment.each do |line|
+                line = line.gsub(/^\/\//, '').strip
+                result[:description].push line.gsub(/^\/\*+/, '').gsub(/\*\/$/, '').sub(/(^\* )|(^\*)/, '')
             end
 
             result[:description] = result[:description].join
@@ -91,7 +94,8 @@ module CssDoc
             index = 0
             parent_node.children.each do |child|
 
-                if node == child
+                # Find the same object on the tree
+                if node.__id__ == child.__id__
                     if index == 0
                         # first node doesn't have comments
                         return comment
