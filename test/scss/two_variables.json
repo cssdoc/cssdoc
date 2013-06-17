@@ -3,11 +3,13 @@
         "variables": [{
             "name": "variable-one",
             "description": "This is the first variable",
-            "type": "string"
+            "type": "string",
+            "value": "one"
         },{
            "name": "variable-two",
             "description": "This is the second variable",
-            "type": "string" 
+            "type": "string",
+            "value": "blue" 
         }],
         "functions": [],
         "mixins": [],

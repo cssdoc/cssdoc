@@ -3,7 +3,8 @@
         "variables": [{
             "name": "variable",
             "description": "This is a simple variable",
-            "type": "string"
+            "type": "string",
+            "value": "string"
         }],
         "functions": [],
         "mixins": [],

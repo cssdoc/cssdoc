@@ -142,6 +142,7 @@ module CssDoc
         def parse_variable(node, parent_node=nil)
             var = CssDoc::Variable.new
             var.name = node.name
+            var.value = node.expr
 
             comment = get_comment_from_node(node, parent_node)
             

@@ -20,7 +20,8 @@ class TestHelper
         return {
             :name => (values[:name] or ""),
             :description => (values[:description] or ""),
-            :type => (values[:type] or :string)
+            :type => (values[:type] or :string),
+            :value => (values[:value] or nil)
         }
     end
 

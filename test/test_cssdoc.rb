@@ -32,7 +32,7 @@ class CssDocTest < Test::Unit::TestCase
         str = "$var: 'simple';"
         result = CssDoc::parse_string str, :scss
 
-        var = TestHelper.get_default_variable({:name => 'var'})
+        var = TestHelper.get_default_variable({:name => 'var', :value => 'simple'})
         expected = Hash.new
         expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
 
@@ -47,7 +47,7 @@ class CssDocTest < Test::Unit::TestCase
 
         result = CssDoc::parse_string str, :scss 
 
-        var = TestHelper.get_default_variable({:name => 'var', :description => 'simple'})
+        var = TestHelper.get_default_variable({:name => 'var', :value => 'simple', :description => 'simple'})
         expected = Hash.new
         expected[CssDoc::Module::DEFAULT_NAME] = TestHelper.get_default_module({:variables => [var]})
 

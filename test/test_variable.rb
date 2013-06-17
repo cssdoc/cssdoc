@@ -18,6 +18,7 @@ class VariableTest < Test::Unit::TestCase
         assert_equal @var.name, ""
         assert_equal @var.description, ""
         assert_equal @var.type, CssDoc::Variable::Types::STRING
+        assert_equal @var.value, nil
     end
 
     def test_to_hash
