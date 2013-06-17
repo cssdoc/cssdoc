@@ -1,0 +1,13 @@
+{
+    "multiplevar": {
+        "variables": [{
+            "name": "var",
+            "description": "This must be the right one",
+            "type": "string",
+            "value": "hello"
+        }],
+        "functions": [],
+        "mixins": [],
+        "rules": []
+    }
+}

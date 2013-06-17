@@ -1,0 +1,13 @@
+{
+    "numbervar": {
+        "variables": [{
+            "name": "number-var",
+            "description": "",
+            "type": "number",
+            "value": 10
+        }],
+        "functions": [],
+        "mixins": [],
+        "rules": []
+    }
+}

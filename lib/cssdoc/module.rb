@@ -32,7 +32,16 @@ module CssDoc
 
         # @param var [CssDoc::Variable]
         def add_variable(var)
-            @variables.push var
+            can_add = true
+            @variables.each do |variable|
+                if variable.name == var.name
+                    can_add = false
+                end
+            end
+
+            if can_add
+                @variables.push var
+            end
         end
 
     end

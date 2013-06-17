@@ -1,0 +1,43 @@
+{
+    "severalvariables": {
+        "variables": [{
+            "name": "no-documented",
+            "description": "",
+            "type": "string",
+            "value": ""
+        },{
+           "name": "must-be-bool",
+            "description": "This one must be boolean",
+            "type": "boolean",
+            "value": true
+        },{
+           "name": "must-be-bool-but-false",
+            "description": "This one must be boolean too",
+            "type": "boolean",
+            "value": false
+        },{
+           "name": "must-be-number",
+            "description": "This one must be number",
+            "type": "number",
+            "value": 10
+        },{
+           "name": "must-be-string-for-its-quotes",
+            "description": "But this one must be string",
+            "type": "string",
+            "value": "100"
+        },{
+           "name": "sass",
+            "description": "* Nothing to say",
+            "type": "string",
+            "value": "scss"
+        },{
+           "name": "must-be-color",
+            "description": "This one must be color",
+            "type": "color",
+            "value": "#123456"
+        }],
+        "functions": [],
+        "mixins": [],
+        "rules": []
+    }
+}

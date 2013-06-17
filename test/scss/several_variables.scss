@@ -1,0 +1,21 @@
+$no-documented: "";
+
+// This one must be boolean
+$must-be-bool: true;
+
+// This one must be boolean too
+$must-be-bool-but-false: false;
+
+/* This one must be number */
+$must-be-number: 10;
+
+/**
+ * But this one must be string
+ */
+$must-be-string-for-its-quotes: "100";
+
+/** * Nothing to say */
+$sass: scss;
+
+/* This one must be color */
+$must-be-color: #123456;

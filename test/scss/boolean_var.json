@@ -1,0 +1,18 @@
+{
+    "booleanvar": {
+        "variables": [{
+            "name": "boolean-var",
+            "description": "",
+            "type": "boolean",
+            "value": true
+        },{
+            "name": "boolean-var-two",
+            "description": "This is false",
+            "type": "boolean",
+            "value": false
+        }],
+        "functions": [],
+        "mixins": [],
+        "rules": []
+    }
+}
