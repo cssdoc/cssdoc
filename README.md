@@ -12,36 +12,20 @@ Dynamic documentation for css, scss and sass
 
 
 ## Variables
+example with no comments:
 ```scss
 $font-size: 14px;
 ```
-
 ```json
 {
     "name": "font-size",
     "type": "number",
-    "description": ",
+    "description": "",
     "value": "14px"
 }
 ```
 
-
-```scss
-/**
- * Default background color
- * @type color
- */
-$background-color: white;
-```
-result:
-```json
-{
-    "name": "background-color",
-    "type": "color",
-    "description": "Default background color",
-    "value": "white"
-}
-```
+example with simple comment:
 
 ```scss
 // Default text color
@@ -58,6 +42,23 @@ result:
 }
 ```
 
+Example with a block comment:
+```scss
+/**
+ * Default background color
+ * @type color
+ */
+$background-color: white;
+```
+```json
+{
+    "name": "background-color",
+    "type": "color",
+    "description": "Default background color",
+    "value": "white"
+}
+```
+
 ## Mixins
 
 ```scss
@@ -70,17 +71,16 @@ result:
     /** Mixin body */
 }
 ```
-
-result:
 ```json
 {
     "name": "make-something",
     "descriptions": "Something happens",
     "parameters": [
-        { "name": "one", "type": "number", "description": "The first parameter", value: null },
-        { "name": "two", "type": "string", "description": "The optional second argument", value: "white" },
+        { "name": "one", "type": "number", "description": "The first parameter", "value": null },
+        { "name": "two", "type": "string", "description": "The optional second argument", "value": "white" },
     ]
 }
+```
 
 ## Functions
 
@@ -102,7 +102,7 @@ result:
     "name": "get-color-from-something",
     "description": "Get the color from something",
     "params": [
-        { "name": "one", "type": "number", "description": "The first parameter", value: null },
+        { "name": "one", "type": "number", "description": "The first parameter", "value": null },
 
     ],
     "return": { "type": "color", "description": "The color from something" }
