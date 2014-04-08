@@ -12,6 +12,19 @@ Dynamic documentation for css, scss and sass
 
 
 ## Variables
+```css
+$font-size: 14px;
+```
+
+```json
+{
+    'name': 'font-size',
+    'type': 'number',
+    'description': '',
+    'value': '14px'
+}
+```
+
 
 ```css
 /**
@@ -20,13 +33,28 @@ Dynamic documentation for css, scss and sass
  */
 $background-color: white;
 ```
-results:
+result:
 ```json
 {
     'name': 'background-color',
     'type': 'color',
     'description': 'Default background color',
     'value': 'white'
+}
+```
+
+```css
+// Default text color
+$text-color: rgba(0, 0, 0, 0.9);
+```
+
+result:
+```json
+{
+    'name': 'text-color',
+    'type': 'color',
+    'description': 'Default text color',
+    'value': 'rgba(0, 0, 0, 0.9)'
 }
 ```
 
