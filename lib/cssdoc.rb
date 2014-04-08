@@ -27,7 +27,7 @@ module CssDoc
         return JSON.parse result
     end
 
-    # Reades the given file and parses its content
+    # Reads the given file and parses its content
     # @param path [String] Path to the file
     # @param [syntax=:scss] [Symbol]
     # @return [Hash] a valid JSON
