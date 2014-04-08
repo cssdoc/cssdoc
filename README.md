@@ -31,8 +31,6 @@ example with simple comment:
 // Default text color
 $text-color: rgba(0, 0, 0, 0.9);
 ```
-
-result:
 ```json
 {
     "name": "text-color",
@@ -76,8 +74,8 @@ $background-color: white;
     "name": "make-something",
     "descriptions": "Something happens",
     "parameters": [
-        { "name": "one", "type": "number", "description": "The first parameter", "value": null },
-        { "name": "two", "type": "string", "description": "The optional second argument", "value": "white" },
+        { "name": "one", "type": "number", "description": "The first parameter", "value": null, "optional": false },
+        { "name": "two", "type": "string", "description": "The optional second argument", "value": "white", "optional": true },
     ]
 }
 ```
@@ -88,7 +86,7 @@ $background-color: white;
 /**
  * Get the color from something
  * @param $something Something given to the function
- * @param [$default-color="white"] {string} Fallback color
+ * @param [$default-color="white"] {color} Fallback color
  * @return {color} The color from something
  */
 @function get-color-from-something($something, $default-color: "white"){
@@ -96,14 +94,13 @@ $background-color: white;
     @return $color;
 }
 ```
-
 ```json
 {
     "name": "get-color-from-something",
     "description": "Get the color from something",
     "params": [
-        { "name": "one", "type": "number", "description": "The first parameter", "value": null },
-
+        { "name": "something", "type": null, "description": "Something given to the function", "value": null, "optional": false },
+        { "name": "default-color", "type": "color", "description": "Fallback color", "value": "white", "optional": true }
     ],
     "return": { "type": "color", "description": "The color from something" }
 }
