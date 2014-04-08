@@ -11,3 +11,76 @@ Dynamic documentation for css, scss and sass
 
 
 
+## Variables
+
+```css
+/**
+ * Default background color
+ * @type color
+ */
+$background-color: white;
+```
+results:
+```json
+{
+    'name': 'background-color',
+    'type': 'color',
+    'description': 'Default background color',
+    'value': 'white'
+}
+```
+
+## Mixins
+
+```css
+/**
+ * Something happens
+ * @param $one {Number} The first parameter
+ * @param [$two='white'] {string} The optional second argument
+ */
+@mixin make-something($one, $two: 'white'){
+    /** Mixin body */
+}
+```
+
+result:
+```json
+{
+    'name': 'make-something',
+    'descriptions': 'Something happens',
+    'parameters': [
+        { 'name': 'one', 'type': 'number', 'description': 'The first parameter', value: null },
+        { 'name': 'two', 'type': 'string', 'description': 'The optional second argument', value: 'white' },
+    ]
+}
+
+## Functions
+
+```css
+/**
+ * Get the color from something
+ * @param $something Something given to the function
+ * @param [$default-color='white'] {string} Fallback color
+ * @return {color} The color from something
+ */
+@function get-color-from-something($something, $default-color: 'white'){
+    /** function body */
+    @return $color;
+}
+```
+
+```json
+{
+    'name': 'get-color-from-something',
+    'description': 'Get the color from something',
+    'params': [
+        { 'name': 'one', 'type': 'number', 'description': 'The first parameter', value: null },
+
+    ],
+    'return': { 'type': 'color', 'description': 'The color from something' }
+}
+```
+
+## Rules
+
+to do
